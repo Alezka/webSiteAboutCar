@@ -1,0 +1,64 @@
+<div class="container">
+  <br>
+  <h4>
+    <mark> Автомобіль:</mark>
+    {{name}}
+    <small> {{model}}</small>
+  </h4>
+  <div class="alert alert-success">Характеристики авто:
+    <ul>
+      <li>Швидкість: <strong> {{speed}}</strong> km</li>
+      <li>Колір авто: <strong> {{colors.car}}</strong></li>
+      <li>Колір салон: <strong> {{colors.salon}}</strong></li>
+      <li>Колір коліс: <strong> {{colors.wheels}}</strong></li>
+    </ul>
+  </div>
+
+  <h5> Редагувати параметри автомобіля</h5>
+  <button class=" btn btn-danger" (click)="showEdit()">Редагувати</button>
+  <div><br></div>
+  <form *ngIf="isEdit">
+    <div class="form-group">
+      <input type="text" placeholder="Назва машини" class="form-control"
+             [(ngModel)]="name" name="name"><br>
+      <input type="text" placeholder="Модель машини" class="form-control"
+             [(ngModel)]="model" name="model"><br>
+      <input type="number" placeholder="Швидкість" class="form-control"
+             [(ngModel)]="speed" name="speed"><br>
+      <input type="text" placeholder="Колір машини" class="form-control"
+             [(ngModel)]="colors.car" name="car"><br>
+      <input type="text" placeholder="Колір салону" class="form-control"
+             [(ngModel)]="colors.salon" name="salon"><br>
+      <input type="text" placeholder="Колір коліс" class="form-control"
+             [(ngModel)]="colors.wheels" name="wheels"><br>
+
+
+      <br>
+    </div>
+  </form>
+
+  <h5> Можливості авто</h5>
+  <form (submit)="addOption(optoin.value)">
+    <div class="form-group">
+      <label for="option"> Додавання нової опції</label>
+      <br>
+      <div class="d-flex"><input type="text" id="option" placeholder="Напишіть опцію" class="  form-control " #optoin>
+        <br>
+        <button type="submit" class="btn-outline-success ml-1 rounded">Добавити</button>
+      </div>
+    </div>
+  </form>
+  <div class="alert alert-warning">
+    <ul>
+      <li *ngFor="let option of options">
+        {{option}}
+        <button class="btn-warning btn-sm" (click)="deleteOption(option)">x</button>
+      </li>
+    </ul>
+  </div>
+
+  <h5> Виберіть автомобіль:</h5>
+  <button class=" btn btn-danger" (click)="carSelect('Bmw')">BMW</button>
+  <button class=" btn btn-success" (click)="carSelect('Audi')">Audi</button>
+  <button class=" btn btn-info" (click)="carSelect('Mersedes')">Mersedes</button>
+</div>

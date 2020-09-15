@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "webSiteAboutCar"
+    }
+  },
+  "defaultProject": "webSiteAboutCar",
+  "cli": {
+    "analytics": "5aec9b6e-e8bb-4771-a042-62351e71416c"
+  }
 }
